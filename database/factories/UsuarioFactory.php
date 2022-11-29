@@ -23,6 +23,7 @@ class UsuarioFactory extends Factory
             'telefone' => fake()->phoneNumber(),
             'sobrenome' => fake()->lastName(),
             'estado' => 'RJ',
+            'acesso' => 1,
             'situação' => 1
         ];
     }

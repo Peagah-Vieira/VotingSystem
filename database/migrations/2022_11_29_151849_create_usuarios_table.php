@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('sobrenome', 50);
             $table->string('telefone', 50);
             $table->string('estado', 50);
+            $table->integer('acesso');
             $table->boolean('situação'); 
             $table->timestamps();
             $table->softDeletes();

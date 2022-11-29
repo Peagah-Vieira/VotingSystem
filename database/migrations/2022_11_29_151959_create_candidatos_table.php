@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('estado', 50);
             $table->string('filiação', 50);
             $table->string('número', 50)->unique();
-            $table->bigInteger('votos');
+            $table->integer('votos');
             $table->boolean('situação'); 
             $table->timestamps();
             $table->softDeletes();
