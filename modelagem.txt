@@ -1,7 +1,7 @@
 Niveis de acesso(integer)
 {
     1 - Usuario normal(Read)
-    2- Usuario acesso a cadastro(Create, Update)
+    2 - Usuario acesso a cadastro(Create, Update)
     3 - Usuario Administrador(CRUD)
 }
 
@@ -14,5 +14,5 @@ Situação do Usuario(boolean)
 Situação do Candidato(boolean)
 {
     0 - Inadimplente
-    1- Adimplente
+    1 - Adimplente
 }
