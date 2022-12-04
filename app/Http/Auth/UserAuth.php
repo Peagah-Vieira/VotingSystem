@@ -11,30 +11,6 @@ use Illuminate\Support\Facades\Hash;
 class UserAuth extends Controller
 {
     /**
-     * @return view
-     */
-    function index()
-    {
-        return view('login');
-    }
-
-    /**
-     * @return view
-     */
-    function registerPage()
-    {
-        return view('register');
-    }
-
-    /**
-     * @return view
-     */
-    function forgotPassword()
-    {
-        return view('forgotPassword');
-    }
-
-    /**
      * Function that registers the user in the database
      *
      * @param UserRegisterRequest $request
@@ -56,6 +32,7 @@ class UserAuth extends Controller
             'password' => Hash::make($password),
         ]);
 
+        //Quando redirecionar utilizar biblioteca toastR para emitir um avisso (A ser Feito)
         return redirect()->to('login');
     }
 
@@ -82,8 +59,7 @@ class UserAuth extends Controller
             return redirect()->to('login');
         }
 
-        session()->put('user', $user);
-        
+        //Quando login for efetuado com sucesso aparecer messagem ToastR e depois de 3 segundos redirecionar (A ser feito)
         return redirect()->to('home');
     }
 }
