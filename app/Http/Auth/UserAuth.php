@@ -2,6 +2,7 @@
 
 namespace App\Http\Auth;
 
+use App\Classes\Logger;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\loginSubmitRequest;
 use App\Http\Requests\UserRegisterRequest;
@@ -10,6 +11,13 @@ use Illuminate\Support\Facades\Hash;
 
 class UserAuth extends Controller
 {
+    private $logger;
+
+    public function __construct()
+    {
+        $this->logger = new Logger();
+    }
+    
     /**
      * Function that registers the user in the database
      *
@@ -52,14 +60,22 @@ class UserAuth extends Controller
         $user = User::where('email', $email)->first();
 
         if (!$user) {
-            return redirect()->to('/');
+            $this->logger->log('error', $email . ' - ' . 'User not found.');
+
+            return redirect('/')->with('status', 'User not found!');
         }
 
         if (!Hash::check($password, $user->password)) {
-            return redirect()->to('/');
+            $this->logger->log('error', $email . ' - ' . 'Incorrect password.');
+
+            return redirect('/')->with('status', 'Incorrect password!');
         }
 
         //Quando login for efetuado com sucesso aparecer messagem ToastR e depois de 3 segundos redirecionar (A ser feito)
+        session()->put('user', $user);
+        $this->logger->log('info', 'Login Efetuado com sucesso');
+
+
         return redirect()->to('home');
     }
 }

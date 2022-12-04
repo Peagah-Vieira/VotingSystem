@@ -54,7 +54,12 @@
                     <p>{{$error}}</p>
                 @endforeach
             @endif
-    
+
+            {{-- Login Attempt Errors --}}
+            @if (session('status'))
+                <p>{{ session('status')}}</p>
+            @endif
+
             <div class="flex justify-center items-center mt-6">
                 <a href="{{route('register')}}" class="inline-flex items-center font-bold text-blue-500 hover:text-blue-700 text-xs text-center">
                     <i class="fa-solid fa-user-plus"></i>
