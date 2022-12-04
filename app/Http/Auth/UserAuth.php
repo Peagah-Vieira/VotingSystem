@@ -52,11 +52,11 @@ class UserAuth extends Controller
         $user = User::where('email', $email)->first();
 
         if (!$user) {
-            return redirect()->to('/');
+            return redirect('/')->with('status', 'User not found!');
         }
 
         if (!Hash::check($password, $user->password)) {
-            return redirect()->to('/');
+            return redirect('/')->with('status', 'Incorrect password!');
         }
 
         //Quando login for efetuado com sucesso aparecer messagem ToastR e depois de 3 segundos redirecionar (A ser feito)
