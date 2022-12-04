@@ -15,10 +15,6 @@ class Logger
      */
     public function log($level, $message)
     {
-        if (session()->has('user')) {
-            $message = '[' . session('user')->email . ']' . ' - ' . $message;
-        } 
-        
         return Log::channel('main')->$level($message);
     }
 }
