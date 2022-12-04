@@ -11,29 +11,29 @@
             </div>
 
             <div class="mt-10">
-                <form action="#" method="POST">
+                <form action="{{route('auth.register')}}" method="POST">
                     @csrf
                     <div class="flex flex-col mb-6">
-                        <label for="textFirstName" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">First Name:</label>
+                        <label for="firstName" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Firstname:</label>
                         <div class="relative">
                             <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
                                 <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                 <path d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                                 </svg>
                             </div>
-                            <input id="textFirstName" type="text" name="textFirstName" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="First Name">
+                            <input id="firstName" type="text" name="firstName" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Firstname">
                         </div>
                     </div>
 
                     <div class="flex flex-col mb-6">
-                        <label for="textLastName" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Last Name:</label>
+                        <label for="lastName" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Lastname:</label>
                         <div class="relative">
                             <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
                                 <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                 <path d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                                 </svg>
                             </div>
-                            <input id="textLastName" type="text" name="textLastName" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Last Name">
+                            <input id="lastName" type="text" name="lastName" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Lastname">
                         </div>
                     </div>
 
@@ -75,6 +75,12 @@
                     </div>
                 </form>
             </div>
+
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <p>{{$error}}</p>
+                @endforeach
+            @endif
 
             <div class="flex justify-center items-center mt-6">
                 <a href="{{route('login')}}" class="inline-flex items-center font-bold text-blue-500 hover:text-blue-700 text-xs text-center">
