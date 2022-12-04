@@ -40,8 +40,10 @@ class UserAuth extends Controller
             'password' => Hash::make($password),
         ]);
 
+        $this->logger->log('info', $email . ' - ' . 'Registration done successfully');
+
         //Quando redirecionar utilizar biblioteca toastR para emitir um avisso (A ser Feito)
-        return redirect()->to('login');
+        return redirect()->to('/');
     }
 
     /**
@@ -72,8 +74,7 @@ class UserAuth extends Controller
         }
 
         //Quando login for efetuado com sucesso aparecer messagem ToastR e depois de 3 segundos redirecionar (A ser feito)
-        session()->put('user', $user);
-        $this->logger->log('info', 'Login Efetuado com sucesso');
+        $this->logger->log('info', $email . ' - ' . 'Login Successfully');
 
 
         return redirect()->to('home');
