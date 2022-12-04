@@ -9,5 +9,8 @@
 </head>
 <body>
     @yield('content')
+    
+    {{-- FONTAWESOME CDN --}}
+    <script src="https://kit.fontawesome.com/0527a7a8a4.js" crossorigin="anonymous"></script>
 </body>
 </html>
