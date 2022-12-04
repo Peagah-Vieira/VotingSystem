@@ -8,6 +8,7 @@ use App\Http\Requests\loginSubmitRequest;
 use App\Http\Requests\UserRegisterRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Brian2694\Toastr\Facades\Toastr;
 
 class UserAuth extends Controller
 {
@@ -42,8 +43,7 @@ class UserAuth extends Controller
 
         $this->logger->log('info', $email . ' - ' . 'Registration done successfully');
 
-        //Quando redirecionar utilizar biblioteca toastR para emitir um avisso (A ser Feito)
-        return redirect()->to('/');
+        return redirect('/')->with('registerSuccess', 'Registration done successfully');
     }
 
     /**
@@ -64,19 +64,17 @@ class UserAuth extends Controller
         if (!$user) {
             $this->logger->log('error', $email . ' - ' . 'User not found.');
 
-            return redirect('/')->with('status', 'User not found!');
+            return back()->with('wrongUser', 'User not found!');
         }
 
         if (!Hash::check($password, $user->password)) {
             $this->logger->log('error', $email . ' - ' . 'Incorrect password.');
 
-            return redirect('/')->with('status', 'Incorrect password!');
+            return back()->with('wrongPassword', 'Incorrect password!');
         }
 
-        //Quando login for efetuado com sucesso aparecer messagem ToastR e depois de 3 segundos redirecionar (A ser feito)
         $this->logger->log('info', $email . ' - ' . 'Login Successfully');
 
-
-        return redirect()->to('home');
+        return redirect('home')->with('loginSuccess', 'Login Successfully!');
     }
 }

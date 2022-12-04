@@ -18,7 +18,7 @@
                                 <i class="fa-solid fa-at"></i>
                             </div>
             
-                            <input id="email" type="email" name="email" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="E-Mail Address" />
+                            <input id="email" type="email" name="email" value="{{old('email')}}" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="E-Mail Address">
                         </div>
                     </div>
 
@@ -29,7 +29,7 @@
                                 <i class="fa-solid fa-lock"></i>
                             </div>
             
-                            <input id="password" type="password" name="password" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Password" />
+                            <input id="password" type="password" name="password" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Password">
                         </div>
                     </div>
             
@@ -48,18 +48,6 @@
                 </form>
             </div>
 
-            {{-- Validation Errors --}}
-            @if ($errors->any())
-                @foreach ($errors->all() as $error)
-                    <p>{{$error}}</p>
-                @endforeach
-            @endif
-
-            {{-- Login Attempt Errors --}}
-            @if (session('status'))
-                <p>{{ session('status')}}</p>
-            @endif
-
             <div class="flex justify-center items-center mt-6">
                 <a href="{{route('register')}}" class="inline-flex items-center font-bold text-blue-500 hover:text-blue-700 text-xs text-center">
                     <i class="fa-solid fa-user-plus"></i>
@@ -69,3 +57,23 @@
         </div>
     </div>
 @endsection
+
+<script>
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            {{Toastr::error($error, 'Error')}}
+        @endforeach
+    @endif
+
+    @if(Session::has('wrongUser'))
+        {{Toastr::error('User not found!', 'Error')}}
+    @endif
+
+    @if(Session::has('wrongPassword'))
+        {{Toastr::error('Incorrect password!', 'Error')}}
+    @endif
+
+    @if(Session::has('registerSuccess'))
+        {{Toastr::success('Registration done successfully!', 'Success')}}
+    @endif
+</script>
