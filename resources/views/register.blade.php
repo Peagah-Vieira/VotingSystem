@@ -19,7 +19,7 @@
                             <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
                                 <i class="fa-solid fa-pen"></i>
                             </div>
-                            <input id="firstName" type="text" name="firstName" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Firstname">
+                            <input id="firstName" type="text" name="firstName" value="{{old('firstName')}}" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Firstname">
                         </div>
                     </div>
 
@@ -29,7 +29,7 @@
                             <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
                                 <i class="fa-solid fa-signature"></i>
                             </div>
-                            <input id="lastName" type="text" name="lastName" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Lastname">
+                            <input id="lastName" type="text" name="lastName" value="{{old('lastName')}}" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Lastname">
                         </div>
                     </div>
 
