@@ -29,7 +29,7 @@ class UserRegisterRequest extends FormRequest
     public function messages()
     {
         return [
-            'firstName.required' => 'Just a test message'
+            //
         ];
     }
 }
