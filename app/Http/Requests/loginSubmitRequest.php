@@ -14,8 +14,8 @@ class loginSubmitRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required'],
-            'password' => ['required'],
+            'email' => ['required', 'email'],
+            'password' => ['required', 'min:6', 'max:20'],
         ];
     }
 
@@ -27,7 +27,7 @@ class loginSubmitRequest extends FormRequest
     public function messages()
     {
         return [
-            'email.required' => 'Just a test here'
+            //
         ];
     }
 }

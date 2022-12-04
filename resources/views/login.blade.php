@@ -64,7 +64,7 @@
                     <p>{{$error}}</p>
                 @endforeach
             @endif
-            
+    
             <div class="flex justify-center items-center mt-6">
                 <a href="{{route('register')}}" class="inline-flex items-center font-bold text-blue-500 hover:text-blue-700 text-xs text-center">
                 <span>
