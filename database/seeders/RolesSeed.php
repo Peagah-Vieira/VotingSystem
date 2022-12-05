@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Role;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class RolesSeed extends Seeder
@@ -16,12 +15,19 @@ class RolesSeed extends Seeder
     public function run()
     {
         $role = Role::all();
+        $permissions = [
+            'ADMIN'     => ['ALL'],
+            'CANDIDATE' => [''],
+            'VOTER'     => [''],
+        ];
 
         if ($role->count() === 0) {
-            $role = new Role;
-            $role->name = 'ADMIN';
-            $role->permissions = json_encode(['ALL']);
-            $role->save();
+            foreach($permissions as $key => $value){
+                $role = new Role;
+                $role->name = $key;
+                $role->permissions = json_encode($value);
+                $role->save();
+            }
         }
     }
 }

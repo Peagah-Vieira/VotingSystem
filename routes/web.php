@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Candidates\CandidateController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Parties\PartyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,14 +20,20 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::prefix('candidates')->group(function(){
+        Route::post('/', [CandidateController::class, 'store']);
+    });
+
+    Route::prefix('parties')->group(function(){
+        Route::post('/', [PartyController::class, 'store']);
+    });
+
 });
 
 require __DIR__.'/auth.php';
