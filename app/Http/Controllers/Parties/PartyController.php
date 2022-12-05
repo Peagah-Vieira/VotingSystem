@@ -1,12 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Parties;
 
-use App\Models\Role;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\Parties\Requests\PartyRequest;
+use App\Models\Party;
 use Illuminate\Http\Request;
 
-class RoleController extends Controller
+class PartyController extends Controller
 {
+    /**
+     * @param Party $party
+     */
+    public function __construct(private readonly Party $party)
+    {}
+
     /**
      * Display a listing of the resource.
      *
@@ -33,18 +41,21 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PartyRequest $request)
     {
-        //
+        $this->party->name = $request->input('name');
+        $this->party->prefix = $request->input('prefix');
+
+        return $this->party->save();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Role  $role
+     * @param  \App\Models\Party  $party
      * @return \Illuminate\Http\Response
      */
-    public function show(Role $role)
+    public function show(Party $party)
     {
         //
     }
@@ -52,10 +63,10 @@ class RoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Role  $role
+     * @param  \App\Models\Party  $party
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role)
+    public function edit(Party $party)
     {
         //
     }
@@ -64,10 +75,10 @@ class RoleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Role  $role
+     * @param  \App\Models\Party  $party
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request, Party $party)
     {
         //
     }
@@ -75,10 +86,10 @@ class RoleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Role  $role
+     * @param  \App\Models\Party  $party
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Role $role)
+    public function destroy(Party $party)
     {
         //
     }
