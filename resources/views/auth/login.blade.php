@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.guest')
 
 @section('title', 'Voting System - Login')
 
