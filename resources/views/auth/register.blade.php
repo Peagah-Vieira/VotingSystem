@@ -11,25 +11,25 @@
             </div>
 
             <div class="mt-10">
-                <form action="{{route('auth.register')}}" method="POST">
+                <form method="POST" action="{{ route('register') }}">
                     @csrf
                     <div class="flex flex-col mb-6">
-                        <label for="firstName" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Firstname:</label>
+                        <label for="name" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Name:</label>
                         <div class="relative">
                             <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
                                 <i class="fa-solid fa-pen"></i>
                             </div>
-                            <input id="firstName" type="text" name="firstName" value="{{old('firstName')}}" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Firstname">
+                            <input id="name" type="text" name="name" value="{{old('name')}}" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Firstname">
                         </div>
                     </div>
 
                     <div class="flex flex-col mb-6">
-                        <label for="lastName" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Lastname:</label>
+                        <label for="lastname" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Lastname:</label>
                         <div class="relative">
                             <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
                                 <i class="fa-solid fa-signature"></i>
                             </div>
-                            <input id="lastName" type="text" name="lastName" value="{{old('lastName')}}" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Lastname">
+                            <input id="lastname" type="text" name="lastname" value="{{old('lastname')}}" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Lastname">
                         </div>
                     </div>
 
@@ -52,7 +52,17 @@
                             <input id="password" type="password" name="password" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Password">
                         </div>
                     </div>
-            
+
+                    <div class="flex flex-col mb-6">
+                        <label for="password-confirm" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Confirm Password:</label>
+                        <div class="relative">
+                            <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
+                                <i class="fa-solid fa-lock"></i>
+                            </div>
+                            <input id="password-confirm" type="password" name="password_confirmation" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Confirm password">
+                        </div>
+                    </div>
+
                     <div class="flex w-full">
                         <button type="submit" class="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-600 hover:bg-blue-700 rounded py-2 w-full transition duration-150 ease-in">
                         <span class="mr-2 uppercase">Register</span>
@@ -61,12 +71,6 @@
                     </div>
                 </form>
             </div>
-
-            @if ($errors->any())
-                @foreach ($errors->all() as $error)
-                    <p>{{$error}}</p>
-                @endforeach
-            @endif
 
             <div class="flex justify-center items-center mt-6">
                 <a href="{{route('login')}}" class="inline-flex items-center font-bold text-blue-500 hover:text-blue-700 text-xs text-center">
@@ -78,3 +82,11 @@
         </div>
     </div>
 @endsection
+
+<script>
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            {{Toastr::error($error, 'Error')}}
+        @endforeach
+    @endif
+</script>
