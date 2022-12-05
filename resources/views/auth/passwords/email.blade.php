@@ -7,26 +7,15 @@
         <div class="flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-md">
         <div class="font-medium self-center text-xl sm:text-2xl uppercase text-gray-800">Recover Password</div>
         <div class="mt-10">
-            <form action="#" method="POST">
+            <form method="POST" action="{{ route('password.email') }}">
                 @csrf
                 <div class="flex flex-col mb-6">
                     <label for="email" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">E-Mail Address:</label>
                     <div class="relative">
-                    <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
-                        <i class="fa-solid fa-at"></i>
-                    </div>
-        
-                    <input id="email" type="email" name="email" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="E-Mail Address" />
-                    </div>
-                </div>
-                <div class="flex flex-col mb-6">
-                    <label for="password" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Password:</label>
-                    <div class="relative">
-                    <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
-                        <i class="fa-solid fa-lock"></i>
-                    </div>
-        
-                    <input id="password" type="password" name="password" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Password" />
+                        <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
+                            <i class="fa-solid fa-at"></i>
+                        </div>
+                        <input id="email" type="email" name="email" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="E-Mail Address" />
                     </div>
                 </div>
 
@@ -47,3 +36,15 @@
         </div>
     </div>
 @endsection
+
+<script>
+    @if(Session::has('status'))
+        {{Toastr::success('teste', 'Email Sent')}}
+    @endif
+
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            {{Toastr::error($error, 'Error')}}
+        @endforeach
+    @endif
+</script>

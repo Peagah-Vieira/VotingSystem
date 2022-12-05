@@ -9,7 +9,7 @@
                 Login To Your Account
             </div>
             <div class="mt-10">
-                <form action="{{route('auth.login')}}" method="POST">
+                <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="flex flex-col mb-6">
                         <label for="email" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">E-Mail Address:</label>
@@ -35,7 +35,7 @@
             
                     <div class="flex items-center mb-6 -mt-4">
                         <div class="flex ml-auto">
-                        <a href="{{route('forgotPassword')}}" class="inline-flex text-xs sm:text-sm text-blue-500 hover:text-blue-700">Forgot Your Password?</a>
+                        <a href="{{ route('password.request') }}" class="inline-flex text-xs sm:text-sm text-blue-500 hover:text-blue-700">Forgot Your Password?</a>
                         </div>
                     </div>
             
@@ -63,17 +63,5 @@
         @foreach ($errors->all() as $error)
             {{Toastr::error($error, 'Error')}}
         @endforeach
-    @endif
-
-    @if(Session::has('wrongUser'))
-        {{Toastr::error('User not found!', 'Error')}}
-    @endif
-
-    @if(Session::has('wrongPassword'))
-        {{Toastr::error('Incorrect password!', 'Error')}}
-    @endif
-
-    @if(Session::has('registerSuccess'))
-        {{Toastr::success('Registration done successfully!', 'Success')}}
     @endif
 </script>
