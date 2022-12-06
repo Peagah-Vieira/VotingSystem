@@ -36,4 +36,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 });
 
+Route::view('/dash', 'dash');
+
 require __DIR__.'/auth.php';
