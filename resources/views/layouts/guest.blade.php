@@ -13,15 +13,16 @@
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}" type="image/x-icon">
-</head>
-<body>
-    @yield('content')
 
     <!-- Scripts -->
     @vite('resources/css/app.js')
     <script src="https://kit.fontawesome.com/0527a7a8a4.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+</head>
+<body>
+    @yield('content')
+
     {!! Toastr::message() !!}
 </body>
 </html>
