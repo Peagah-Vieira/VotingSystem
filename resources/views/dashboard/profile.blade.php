@@ -37,7 +37,7 @@
                     <div class="h-full">
                         <h5 class="mb-1">Username</h5>
                         <p class="mb-0 font-semibold leading-normal text-size-sm">name@company.com</p>
-                        <form action="" method="POST">
+                        <form action="#!" method="POST">
                           @csrf
                           <button type="submit" class="font-bold text-red-400 hover:text-red-600">
                             Delete Account
