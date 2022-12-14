@@ -11,8 +11,8 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {return view('dashboard.home');})->name('dashboard');
-    Route::get('/dashboard-about', function () {return view('dashboard.about');})->name('about');
-    Route::get('/dashboard-tables', function () {return view('dashboard.tables');})->name('tables');
+    Route::get('/dashboard-users', function () {return view('dashboard.users');})->name('users');
+    Route::get('/dashboard-candidates', function () {return view('dashboard.candidates');})->name('candidates');
     Route::get('/dashboard-profile', function () {return view('dashboard.profile');})->name('profile');
 
     Route::prefix('candidates')->group(function(){

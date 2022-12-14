@@ -10,7 +10,6 @@
     <script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>
     <script src="https://kit.fontawesome.com/0527a7a8a4.js" crossorigin="anonymous"></script>
     <script src="{{ asset('assets/js/burger-trigger.js') }}" async></script>
-    <script src="{{ asset('assets/js/navbar-sticky.js') }}" async></script>
 </head>
 <body class="m-0 font-sans antialiased font-normal text-base leading-default bg-gray-50 text-slate-500">
     <!-- Sidenav  -->
@@ -35,11 +34,19 @@
                     </a>
                 </li>
                 <li class="mt-0.5 w-full">
-                    <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap text-slate-700 font-semibold rounded-lg px-4 hover:shadow-lg hover:bg-white" href="{{route('tables')}}">
+                    <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap text-slate-700 font-semibold rounded-lg px-4 hover:shadow-lg hover:bg-white" href="{{route('users')}}">
                     <div class="bg-gradient-to-tl from-gray-900 to-slate-800 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                        <i class="fa-solid fa-suitcase text-white"></i>
+                        <i class="fa-solid fa-user text-white"></i>
                     </div>
-                    <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Tables</span>
+                    <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Users</span>
+                    </a>
+                </li>
+                <li class="mt-0.5 w-full">
+                    <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap text-slate-700 font-semibold rounded-lg px-4 hover:shadow-lg hover:bg-white" href="{{route('candidates')}}">
+                    <div class="bg-gradient-to-tl from-gray-900 to-slate-800 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                        <i class="fa-solid fa-user-tie text-white"></i>
+                    </div>
+                    <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Candidates</span>
                     </a>
                 </li>
                 <li class="w-full mt-4">
@@ -51,14 +58,6 @@
                         <i class="fa-solid fa-user"></i>
                     </div>
                     <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Profile</span>
-                    </a>
-                </li>
-                <li class="mt-0.5 w-full">
-                    <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 font-semibold rounded-lg px-4 hover:shadow-lg hover:bg-white" href="{{route('about')}}">
-                    <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                        <i class="fa-solid fa-address-card"></i>
-                    </div>
-                    <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">About</span>
                     </a>
                 </li>
             </ul>
@@ -73,7 +72,7 @@
                     <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full md:ml-auto md:pr-4">
                         <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                             <span class="sr-only">Open user menu</span>
-                            <img class="w-8 h-8 rounded-full" src="{{ asset('assets/img/profile_pic.svg') }}" alt="user photo">
+                            <img class="w-8 h-8 rounded-full" src="{{ asset('img/pessoalinda.jpeg') }}" alt="user photo">
                           </button>
                         <!-- Dropdown menu -->
                         <div class="z-50 hidden mx-10 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow" id="user-dropdown">

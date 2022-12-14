@@ -1,21 +1,21 @@
 @extends('layouts.app')
 
-@section('title', 'Voting System - Tables')   
+@section('title', 'Voting System - Candidates')   
 
 @section('breadcrumb')
     <nav class="flex" aria-label="Breadcrumb">
         <ol class="inline-flex items-center space-x-1 md:space-x-3">
             <li class="inline-flex items-center">
-                <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                <a href="{{route('dashboard')}}" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900">
                 <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
-                Dashboard
+                    Dashboard
                 </a>
             </li>
             <li>
                 <div class="flex items-center">
                 <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-                <a href="#" class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2">
-                    Tables
+                <a href="{{route('candidates')}}" class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2">
+                    Candidates
                 </a>
                 </div>
             </li>
@@ -33,26 +33,26 @@
                             Name
                         </th>
                         <th scope="col" class="py-3 px-6">
-                            Email
+                            Afiliation
                         </th>
                         <th scope="col" class="py-3 px-6">
-                            Address
+                            Votes
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="bg-white border-b hover:bg-gray-50">
                         <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                            Peagah
+                            Michel Temer
                         </th>
                         <td class="py-4 px-6">
-                            peagahvieira2003@gmail.com
+                            PSDB
                         </td>
                         <td class="py-4 px-6">
-                            Someaddress
+                            100
                         </td>
                         <td class="py-4 px-6">
-                            <a href="#" type="button" data-modal-toggle="editUserModal" class="font-medium text-blue-600 hover:underline">Edit user</a>
+                            <a href="#" type="button" data-modal-toggle="editCandidateModal" class="font-medium text-blue-600 hover:underline">Edit candidate</a>
                         </td>
                     </tr>
                 </tbody>
@@ -93,7 +93,7 @@
 @endsection
 
 @section('edit-modal')
-    <div id="editUserModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
+    <div id="editCandidateModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
         <div class="relative w-full max-w-2xl h-full md:h-auto">
             <!-- Modal content -->
             <form action="#" class="relative bg-white rounded-lg shadow">
@@ -102,7 +102,7 @@
                     <h3 class="text-xl font-semibold text-gray-900">
                         Edit user
                     </h3>
-                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-toggle="editUserModal">
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-toggle="editCandidateModal">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
                     </button>
                 </div>
